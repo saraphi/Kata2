@@ -1,7 +1,6 @@
 package kata2;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class Kata2 {
@@ -11,9 +10,7 @@ public class Kata2 {
         Map<Integer, Integer> histogram = new HashMap<>();
         
         for (int x: data) {
-            if (histogram.containsKey(x)) {
-                histogram.put(x, histogram.get(x)+1);
-            } else histogram.put(x, 1);
+            histogram.put(x, histogram.containsKey(x) ? histogram.get(x) + 1 : 1);
         }
         
         if (!histogram.isEmpty()) {
