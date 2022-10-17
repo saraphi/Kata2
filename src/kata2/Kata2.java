@@ -1,8 +1,25 @@
 package kata2;
 
-public class Kata2 {
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
+public class Kata2 {
+    
     public static void main(String[] args) {
+        int[] data = {1, 2, 8, 4, 4, 6, 2, 8, 9, 1, 6, 5, 3, 7, 8};
+        Map<Integer, Integer> histogram = new HashMap<>();
         
+        for (int x: data) {
+            if (histogram.containsKey(x)) {
+                histogram.put(x, histogram.get(x)+1);
+            } else histogram.put(x, 1);
+        }
+        
+        if (!histogram.isEmpty()) {
+            for (Map.Entry<Integer, Integer> entry: histogram.entrySet()) {
+                System.out.println(entry.getKey() + "==>" + entry.getValue());
+            }
+        }
     }
 }
